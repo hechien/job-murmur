@@ -1,0 +1,22 @@
+<%= form_for(@story) do |f| %>
+  <% if @story.errors.any? %>
+    <div class="hero-unit">
+      <h2>喔喔！有錯誤發生了捏 ...</h2>
+      <p>底下的錯誤要先處理掉哦：</p>
+      <ul id="errors">
+        <% @story.errors.each do |column, error| %>
+          <li class="error"><span><%= column %></span> 發生錯誤，原因是 <span><%= error %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div id="location-input">
+    我在<br /><%= f.select :location, options_for_select(%w"北部 中部 南部 東部 離島 國外") %><br />工作的時候，
+  </div>
+  <div id="content-input">
+    發生了<br /><%= f.text_field :content, :placeholder => "故事描述" %><br />這樣的鳥事！！！！
+  </div>
+  <div class="actions">
+    <%= f.submit("送出", :class => "btn") %>
+  </div>
+<% end %>
