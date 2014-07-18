@@ -30,7 +30,7 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to @story, notice: 'Story was successfully created.' }
+        format.html { redirect_to stories_path, notice: 'Story was successfully created.' }
         format.json { render :show, status: :created, location: @story }
       else
         format.html { render :new }
